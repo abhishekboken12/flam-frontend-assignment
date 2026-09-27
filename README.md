@@ -46,7 +46,7 @@ cp frontend/.env.example frontend/.env
 4. #Inside the .env file of server, add Grop api key from 'https://console.groq.com', Groq model, port no and cors origin which is frontend url
 
 ```env
-// .env
+//.env
 GROQ_API_KEY=YOUR_GROQ_API_KEY
 GROQ_MODEL=openai/gpt-oss-120b
 PORT=8787
@@ -68,7 +68,6 @@ npm run install:all
 
 8. # Start a local dev server
 npm run dev
-```
 
 
 
