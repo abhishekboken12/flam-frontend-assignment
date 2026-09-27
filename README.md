@@ -31,41 +31,90 @@ These instructions will get you a copy of the project up and running on your loc
 
 From your command line, clone and run developerFolio:
 
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
 ```bash
-1. Clone this repository
 git clone https://github.com/abhishekboken12/flam-frontend-assignment.git
-
-2. Go into the repository
 cd flam-frontend-assignment
+```
 
+### 2. Create environment files
 
-3. Copy env.example to .env
+```bash
 cp server/.env.example server/.env
 cp frontend/.env.example frontend/.env
+```
 
-4. Inside the .env file of server, add Grop api key from 'https://console.groq.com', Groq model, port no and cors origin which is frontend url
+### 3. Configure the server
+
+Open `server/.env` and add your Groq API key and configuration.
+
+Get your API key from [Groq Console](https://console.groq.com/).
 
 ```env
-//.env
 GROQ_API_KEY=YOUR_GROQ_API_KEY
 GROQ_MODEL=openai/gpt-oss-120b
 PORT=8787
-CORS_ORIGIN=YOUR_RUNNING_FRONTEND_URL (eg: http://localhost:5173)
+CORS_ORIGIN=http://localhost:5173
 ```
 
-5. Inside the .env file of Client, add VITE_API_BASE_UR
-//.env
-VITE_API_BASE_URL=YOUR_DEPLOYED_OR_RUNNING_FRONTEND_URL (eg : http://localhost:5173)
+`CORS_ORIGIN` should be the URL where your frontend is running.
 
-6. # Install dependencies
-npm install
+For example:
 
-7. # Install all dependencies
-npm run install:all 
+```env
+CORS_ORIGIN=http://localhost:5173
+```
 
-8. # Start a local dev server
+### 4. Configure the frontend
+
+Open `frontend/.env` and add the backend URL:
+
+```env
+VITE_API_BASE_URL=http://localhost:8787
+```
+
+> `VITE_API_BASE_URL` must point to the **backend**, not the frontend.
+
+For production, use your deployed backend URL:
+
+```env
+VITE_API_BASE_URL=https://your-backend-url.com
+```
+
+### 5. Install dependencies
+
+From the project root:
+
+```bash
+npm run install:all
+```
+
+### 6. Start the application
+
+```bash
 npm run dev
+```
 
+The frontend should be available at:
+
+```text
+http://localhost:5173
+```
+
+The backend should be available at:
+
+```text
+http://localhost:8787
+```
+
+### Production
+
+Live frontend:
+
+https://flam-frontend-assignment-indol.vercel.app/
 
 
 
