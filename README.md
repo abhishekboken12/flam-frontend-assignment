@@ -32,18 +32,18 @@ These instructions will get you a copy of the project up and running on your loc
 From your command line, clone and run developerFolio:
 
 ```bash
-1. #Clone this repository
+1. Clone this repository
 git clone https://github.com/abhishekboken12/flam-frontend-assignment.git
 
-2. #Go into the repository
+2. Go into the repository
 cd flam-frontend-assignment
 
 
-3. #Copy env.example to .env
+3. Copy env.example to .env
 cp server/.env.example server/.env
 cp frontend/.env.example frontend/.env
 
-4. #Inside the .env file of server, add Grop api key from 'https://console.groq.com', Groq model, port no and cors origin which is frontend url
+4. Inside the .env file of server, add Grop api key from 'https://console.groq.com', Groq model, port no and cors origin which is frontend url
 
 ```env
 //.env
@@ -53,12 +53,9 @@ PORT=8787
 CORS_ORIGIN=YOUR_RUNNING_FRONTEND_URL (eg: http://localhost:5173)
 ```
 
-5. #Inside the .env file of Client, add VITE_API_BASE_UR
-
-```env
+5. Inside the .env file of Client, add VITE_API_BASE_UR
 //.env
 VITE_API_BASE_URL=YOUR_DEPLOYED_OR_RUNNING_FRONTEND_URL (eg : http://localhost:5173)
-```
 
 6. # Install dependencies
 npm install
