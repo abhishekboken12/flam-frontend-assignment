@@ -5,6 +5,9 @@ Recall turns it into a deck of flashcards, and you can flip through them or take
 self-graded quiz that retests whatever you missed. No chat window — the model's
 output is parsed into structured data and rendered as real interactive components.
 
+### 🚀 Live Demo
+https://flam-frontend-assignment-indol.vercel.app/
+
 ## How it works
 
 1. You type a topic or paste notes into the free-form input.
@@ -29,41 +32,50 @@ These instructions will get you a copy of the project up and running on your loc
 From your command line, clone and run developerFolio:
 
 ```bash
-# Clone this repository
-git clone https://github.com/abhishekboken12/recall-study-assistant.git
+1. #Clone this repository
+git clone https://github.com/abhishekboken12/flam-frontend-assignment.git
 
-# Go into the repository
+2. #Go into the repository
 cd flam-frontend-assignment
 
-# Setup default environment variables
 
-# For Linux
-cp env.example .env
-# For Windows
-copy env.example .env
+3. #Copy env.example to .env
+cp server/.env.example server/.env
+cp frontend/.env.example frontend/.env
 
-# Install dependencies
-npm install
-
-# Start a local dev server
-npm run dev
-```
-
-2. Inside the .env file, add key `REACT_APP_GITHUB_TOKEN` and assign your GitHub token like this, also add your username as `GITHUB_USERNAME`
+4. #Inside the .env file of server, add Grop api key from 'https://console.groq.com', Groq model, port no and cors origin which is frontend url
 
 ```env
 // .env
 GROQ_API_KEY=YOUR_GROQ_API_KEY
 GROQ_MODEL=openai/gpt-oss-120b
 PORT=8787
+CORS_ORIGIN=YOUR_RUNNING_FRONTEND_URL (eg: http://localhost:5173)
 ```
 
-then after that Open http://localhost:5173.
+5. #Inside the .env file of Client, add VITE_API_BASE_UR
+
+```env
+//.env
+VITE_API_BASE_URL=YOUR_DEPLOYED_OR_RUNNING_FRONTEND_URL (eg : http://localhost:5173)
+```
+
+6. # Install dependencies
+npm install
+
+7. # Install all dependencies
+npm run install:all 
+
+8. # Start a local dev server
+npm run dev
+```
+
+
 
 
 ## Features beyond the core requirement
 
-- **Three card types** — the model mixes plain Q&A, fill-in-the-blank (cloze), and
+- **Four card types** — the model mixes plain Q&A, fill-in-the-blank (cloze), and
   true/false statements in one deck (`type` field).
 - **Difficulty tags** — each card carries `"easy" | "medium" | "hard"`, shown as a
   colored badge, with the same safe-fallback validation as `type`.
@@ -82,9 +94,6 @@ then after that Open http://localhost:5173.
   itself) and returns only new cards; those are deduped by question text and
   merged into the open deck through the exact same `validateResult.js` path as
   a fresh generation.
-- **Color-coded deck** — each card gets a deterministic accent color from a fixed
-  five-color palette (same card → same color, always), echoed in the example
-  topic chips, so the whole app reads as one system rather than isolated pieces.
 - **Original SVG illustrations** — the header mark and empty-state art are
   hand-drawn inline SVG, not external image requests — nothing to fail to load,
   nothing borrowed.
